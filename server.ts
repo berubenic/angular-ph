@@ -44,18 +44,10 @@ function run(): void {
   // Start up the Node server
   const server = app();
 
-  if (isRunningOnApachePassenger()) {
     server.listen(() => {
       console.log('Node Express listening to Passenger Apache');
     });
     return;
-  }
-
-  const port = process.env['PORT'] || 4000;
-
-  server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
 }
 
 // Webpack will replace 'require' with '__webpack_require__'
